@@ -1,16 +1,10 @@
-const mongoose = require("mongoose");
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 const fs = require("fs/promises");
 const moment = require("moment");
 
-const DB_HOST =
-  "mongodb+srv://Lentuss:1234567890@cluster.oxs2enn.mongodb.net/db-contacts?retryWrites=true&w=majority";
-mongoose
-  .connect(DB_HOST)
-  .then(() => console.log("Database connect sucsess"))
-  .catch((error) => console.log(error.message));
+require("dotenv").config();
 
 const contactsRouter = require("./routes/api/contacts");
 
