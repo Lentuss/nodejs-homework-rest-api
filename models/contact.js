@@ -10,6 +10,11 @@ const contactSchema = new Schema(
     },
     phone: { type: String, required: [true, "Enter the phone number, please"] },
     favorite: { type: Boolean, default: false },
+    owner: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: "user",
+    },
   },
   { versionKey: false, timestamps: true }
 );
