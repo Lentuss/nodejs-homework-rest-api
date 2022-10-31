@@ -275,3 +275,13 @@ POST /api/auth/signup 30-10-2022_01:34:56
 POST /api/auth/login 30-10-2022_01:35:14
 PATCH /api/users/63540e96709962f0d52e7e6c/avatars 30-10-2022_01:38:39
 PATCH /api/users/635e6160b16ced0d3d6d2c4f/avatars 30-10-2022_01:40:34
+POST /api/auth/signup 30-10-2022_05:18:09
+GET /api/users/verify/2c8066e8-3b23-4cd2-a92a-3e5811726e21 30-10-2022_05:20:46
+POST /api/auth/signup 30-10-2022_05:22:08
+GET /api/auth/verify/38949dc9-7230-44f3-8a62-a6d95b9f792d 30-10-2022_05:28:40
+POST /api/auth/verify 30-10-2022_05:29:41
+POST /api/auth/verify 30-10-2022_05:34:05
+POST /api/auth/verify 30-10-2022_05:45:54
+POST /api/auth/verify 30-10-2022_05:48:29
+POST /api/auth/verify 30-10-2022_05:53:28
+POST /api/auth/login 30-10-2022_06:13:35

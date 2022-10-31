@@ -1,7 +1,12 @@
 const { User } = require("../../models/user");
+const {
+  RequestError,
+  createVerifyEmail,
+  sendEmailVerify,
+} = require("../../helpers");
 const bcrypt = require("bcryptjs");
-const { RequestError } = require("../../helpers");
 const gravatar = require("gravatar");
+const { v4 } = require("uuid");
 
 const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -11,13 +16,22 @@ const register = async (req, res) => {
     throw RequestError(409, "Email already in use");
   }
   const hashPassword = await bcrypt.hash(password, 10);
+  const verificationToken = v4();
   const newUser = await User.create({
     name,
     email,
     password: hashPassword,
     avatarURL,
+    verificationToken,
   });
-  res.status(201).json({ name: newUser.name, email: newUser.email });
+  const mail = createVerifyEmail(email, verificationToken);
+  await sendEmailVerify(mail);
+
+  res.status(201).json({
+    name: newUser.name,
+    email: newUser.email,
+    verificationToken: newUser.verificationToken,
+  });
 };
 
 module.exports = register;
