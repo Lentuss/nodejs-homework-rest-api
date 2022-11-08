@@ -11,8 +11,8 @@ const validateVerifyEmail = validation(verifyEmailSchema);
 
 const router = express.Router();
 
-router.post("/signup", validateRegister, ctrlWrapper(register));
 router.post("/login", validateLogin, ctrlWrapper(login));
+router.post("/signup", validateRegister, ctrlWrapper(register));
 
 router.get("/verify/:verificationToken", ctrlWrapper(verifyEmail));
 router.post("/verify", validateVerifyEmail, ctrlWrapper(resendVerifyEmail));
